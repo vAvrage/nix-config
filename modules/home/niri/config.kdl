@@ -79,10 +79,40 @@ animations {
     // slowdown 3.0
 }
 
-// Subnautica 2 fix (possible fix for other games)
+// Steam Popups, Friends List, and Small Utilities (Force Float)
 window-rule {
-    match title="Subnautica 2"
+    match app-id=r#"^steam$"# title=r#"^Friends List$"#
+    match app-id=r#"^steam$"# title=r#"^Steam - News$"#
+    match app-id=r#"^steam$"# title=r#"^.* - Chat$"#
+    match app-id=r#"^steam$"# title=r#"^Settings$"#
+    match app-id=r#"^steam$"# title=r#"^Screenshots$"#
+
+    open-floating true
+    default-floating-position x=100 y=100
+}
+
+// Steam Big Picture Mode (Enforce Fullscreen)
+window-rule {
+    match app-id=r#"^steam$"# title=r#"^Steam Big Picture Mode$"#
+    
     open-fullscreen true
+}
+
+// Steam Games (Proton / XWayland Generic Matches)
+// Most Proton/Steam games run via XWayland and expose empty app-ids or fall back to steam_app*
+window-rule {
+    match app-id=r#"^steam_app_.*$"#
+    match title=r#"^Steam App .*$"#
+
+    open-fullscreen true
+}
+
+// Native/Common Wine Executables (Catch-all for launchers and games)
+window-rule {
+    match app-id=r#"^wine.*$"#
+    match app-id=r#"^.+-windows-x64.exe$"#
+
+    open-floating true // Let launchers float until the engine sets fullscreen
 }
 
 /-window-rule {
