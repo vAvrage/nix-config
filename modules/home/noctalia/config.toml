@@ -1,0 +1,18 @@
+[theme]
+mode = "dark"
+
+[bar.default]
+position = "top"
+widgets.left = [ "launcher", "workspaces" ]
+widgets.center = [ "media" ]
+widgets.right = [ "gpu-monitor", "sys-tray", "mpvpaper", "control-center", "clock" ]
+
+[widget.gpu-monitor]
+type = "sys-stats"
+interval = 2
+show_gpu_temp = true
+show_vram_usage = true
+icon = "  "
+
+[plugin.mpvpaper]
+video_dir = "~/Videos"
