@@ -2,20 +2,27 @@
   programs.git = {
     enable = true;
 
-    userName = "vAvrage";
-    userEmail = "vavrage@proton.me";
+    settings = {
+      user = {
+        name = "vAvrage";
+        email = "vavrage@proton.me";
+      };
 
-    aliases = {
-      st = "status";
-      co = "checkout";
-      br = "branch";
-      cm = "commit";
-      graph = "log --graph --oneline --all";
-    };
+      aliases = {
+        st = "status";
+        co = "checkout";
+        br = "branch";
+        cm = "commit";
+        graph = "log --graph --oneline --all";
+      };
 
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = true;
+      init = {
+        defaultBranch = "main";
+      };
+
+      pull = {
+        rebase = true;
+      };
 
       core = {
         editor = "nvim";
