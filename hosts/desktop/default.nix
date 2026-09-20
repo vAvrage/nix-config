@@ -8,6 +8,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelModules = [ "uinput" ];
 
   networking.hostName = "nnn-desktop";
   networking.networkmanager.enable = true;
@@ -33,7 +34,7 @@
   users.users.avrage = {
     isNormalUser = true;
     description = "Avrage";
-    extraGroups = [ "audio" "networkmanager" "pipewire" "realtime" "video" "wheel" ];
+    extraGroups = [ "audio" "input" "networkmanager" "pipewire" "realtime" "video" "wheel" ];
     shell = pkgs.zsh;
   };
 
