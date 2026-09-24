@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./brave.nix
+    ./cursor.nix
     ./git.nix
     ./neovim
     ./niri
